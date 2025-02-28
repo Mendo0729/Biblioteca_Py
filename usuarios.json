@@ -1,0 +1,27 @@
+{
+    "admin": {
+        "1": {
+            "nombre": "Abdiel Mendoza",
+            "cedula": "3-123-4567",
+            "correo": "abdielmendoza2901@outlook.com",
+            "sexo": "M",
+            "contrasena": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
+        },
+        "2": {
+            "nombre": "Aysah Hart",
+            "cedula": "3-750-84",
+            "correo": "aysahhart@gmail.com",
+            "sexo": "F",
+            "contrasena": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
+        }
+    },
+    "usuario": {
+        "1": {
+            "nombre": "Abdiel Mendoza",
+            "cedula": "3-749-1302",
+            "correo": "abdielmendoza2906@gmail.com",
+            "sexo": "M",
+            "contrasena": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
+        }
+    }
+}
