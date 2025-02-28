@@ -6,6 +6,7 @@ USUARIO_FILE = 'usuarios.json'
 usuarios = fn.cargar_datos(USUARIO_FILE)
 
 
+
 def crear_admin_por_defecto():
     """Crea un administrador por defecto si no existe."""
     if "admin" in usuarios and usuarios['admin']:

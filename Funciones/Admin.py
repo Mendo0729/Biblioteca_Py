@@ -1,5 +1,70 @@
 import Funciones.Funciones as fn
 
+
+
+def agregar_libro(libros,BOOK_FILE):
+    try:
+        while True:
+            nombre = input("Ingrese el nombre del libro: ").strip()
+            if not nombre:
+                print("El nombre del libro no puede estar vacío.")
+                continue
+
+            try:
+                ano_publicacion = int(input("Ingrese el año de publicación: ").strip())
+                if ano_publicacion <= 0:
+                    print("El año de publicación debe ser un número positivo.")
+                    continue
+            except ValueError:
+                print("Debe ingresar un año válido.")
+                continue
+
+            descripcion = input("Ingrese una breve descripción del libro: ").strip()
+            if not descripcion:
+                print("La descripción no puede estar vacía.")
+                continue
+
+            try:
+                stock = int(input("Ingrese la cantidad en stock: ").strip())
+                if stock < 0:
+                    print("El stock no puede ser negativo.")
+                    continue
+            except ValueError:
+                print("Debe ingresar un número válido para el stock.")
+                continue
+
+            # Obtener el último ID o asignar el primero si está vacío
+            nuevo_id = max(libros.keys(), default=0) + 1
+
+            # Agregar el libro al diccionario
+            libros[nuevo_id] = {
+                "nombre": nombre,
+                "ano_publicacion": ano_publicacion,
+                "descripcion": descripcion,
+                "stock": stock
+            }
+            fn.guardar_datos(libros,BOOK_FILE)
+            print(f"\n✅ Libro agregado exitosamente con ID: {nuevo_id}\n")
+            break
+
+    except KeyboardInterrupt:
+        print("\nProceso interrumpido. Saliendo...")
+
+def mostrar_libros(libros):
+    if not libros:
+        print("\n📚 No hay libros registrados.\n")
+        return
+
+    print("\n📖 Lista de libros registrados:\n")
+    print(f"{'ID':<5}{'Nombre':<30}{'Año':<10}{'Stock':<10}{'Descripción':<50}")
+    print("-" * 110)
+
+    for libro_id, datos in libros.items():
+        print(f"{libro_id:<5}{datos['nombre']:<30}{datos['ano_publicacion']:<10}{datos['stock']:<10}{datos['descripcion']:<50}")
+
+    print()
+
+
 def mostrar_usuarios(usuarios):
     fn.barra_carga()
     fn.borrar_barra()
@@ -20,7 +85,6 @@ def mostrar_usuarios(usuarios):
                 for id, datos in usuarios_por_rol.items():
                     print(f"{id:<5}{datos['cedula']:<15}{datos['nombre']:<25}{datos['correo']:<45}{datos['sexo']:<10}")
                 print()
-
 
 def agregar_usuario(usuarios, USUARIO_FILE):
     try:
@@ -93,3 +157,5 @@ def agregar_usuario(usuarios, USUARIO_FILE):
             break
     except KeyboardInterrupt:
         print("\nProceso interrumpido. Saliendo del programa...")
+
+
